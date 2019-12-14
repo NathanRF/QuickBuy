@@ -1,10 +1,11 @@
 ﻿using QuickBuy.Domain.Valueables;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuickBuy.Domain.Entities
 {
-    class Order //Pedido
+    class Order : Entity//Pedido
     {
         public int Id { get; set; }
         public DateTime OrderDate { get; set; }
@@ -24,5 +25,14 @@ namespace QuickBuy.Domain.Entities
         /// or many OrderItems
         /// </summary>
         public ICollection<OrderItem> OrderItens { get; set; }
+
+        public override void Validate()
+        {
+            ClearMessages();
+            if (!OrderItens.Any())
+                AddCritical("Order cannot be without order items");
+            if (string.IsNullOrEmpty(ZipCode))
+                AddCritical("Zip Code must be informed");
+        }
     }
 }
