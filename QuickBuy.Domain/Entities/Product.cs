@@ -9,7 +9,9 @@
 
         public override void Validate()
         {
-            throw new System.NotImplementedException();
+            ClearMessages();
+            if (Price <= 0)
+                AddCritical("Price cannot be lower than 1");
         }
     }
 }

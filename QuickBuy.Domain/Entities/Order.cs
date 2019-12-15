@@ -17,7 +17,7 @@ namespace QuickBuy.Domain.Entities
         public string CompleteAddress { get; set; }
         public int AddressNumber { get; set; }
 
-        public int PaymentOptionId { get; set; }
+        public int PaymentOptionId { get; set; } = 0;
         public PaymentOption PaymentOption { get; set; }
 
         /// <summary>
@@ -33,6 +33,8 @@ namespace QuickBuy.Domain.Entities
                 AddCritical("Order cannot be without order items");
             if (string.IsNullOrEmpty(ZipCode))
                 AddCritical("Zip Code must be informed");
+            if (PaymentOptionId == 0)
+                AddCritical("Payment option not informed");
         }
     }
 }

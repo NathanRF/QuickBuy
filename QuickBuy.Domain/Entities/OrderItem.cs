@@ -8,7 +8,11 @@
 
         public override void Validate()
         {
-            throw new System.NotImplementedException();
+            ClearMessages();
+            if (ProductId == 0)
+                AddCritical("Product reference not identified");
+            if (Amount == 0)
+                AddCritical("Amount not informed");
         }
     }
 }
