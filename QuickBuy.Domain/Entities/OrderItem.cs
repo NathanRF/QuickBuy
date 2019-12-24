@@ -1,6 +1,6 @@
 ﻿namespace QuickBuy.Domain.Entities
 {
-    class OrderItem : Entity
+    public class OrderItem : Entity
     {
         public int Id { get; set; }
         public int ProductId { get; set; }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace QuickBuy.Domain.Valueables
 {
-    class PaymentOption
+    public class PaymentOption
     {
         public int Id { get; set; }
         public string Name { get; set; }

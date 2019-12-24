@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace QuickBuy.Domain.Entities
 {
-    class Order : Entity//Pedido
+    public class Order : Entity//Pedido
     {
         public int Id { get; set; }
         public DateTime OrderDate { get; set; }
