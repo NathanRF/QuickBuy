@@ -19,13 +19,13 @@ namespace QuickBuy.Domain.Entities
         public int AddressNumber { get; set; }
 
         public int PaymentOptionId { get; set; } = 0;
-        public PaymentOption PaymentOption { get; set; }
+        public virtual PaymentOption PaymentOption { get; set; }
 
         /// <summary>
         /// An order must have at least one OrderItem
         /// or many OrderItems
         /// </summary>
-        public ICollection<OrderItem> OrderItens { get; set; }
+        public virtual ICollection<OrderItem> OrderItens { get; set; }
 
         public override void Validate()
         {
