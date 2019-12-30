@@ -25,6 +25,27 @@ namespace QuickBuy.Repository.Context
             modelBuilder.ApplyConfiguration(new OrderItemConfiguration());
             modelBuilder.ApplyConfiguration(new PaymentOptionConfiguration());
 
+            modelBuilder.Entity<PaymentOption>().HasData(
+                new PaymentOption()
+                {
+                    Id = 1,
+                    Name = "Payment Slip",
+                    Description = "Payment Slip Payment Option"
+                },
+                new PaymentOption()
+                {
+                    Id = 2,
+                    Name = "Credit Card",
+                    Description = "Credit Card Payment Option"
+                },
+                new PaymentOption()
+                {
+                    Id = 3,
+                    Name = "Deposit",
+                    Description = "Bank Deposit Payment Option"
+                }
+                );
+
             base.OnModelCreating(modelBuilder);
         }
     }
